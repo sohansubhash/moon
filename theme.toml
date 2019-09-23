@@ -1,13 +1,13 @@
-name = "Cupper"
+name = "moon"
 description = ""
-homepage = "https://www.paciellogroup.com/"
-tags = ["inclusive design", "accessibility"]
-min_version = 0.1
+homepage = ""
+tags = []
+min_version = 0.0.1
 
 SectionPagesMenu = "main"
 
 [author]
-  name = "Heydon Pickering"
+  name = "Sohan Subhash"
   homepage = "https://inclusive-components.design"
 
 [taxonomies]
