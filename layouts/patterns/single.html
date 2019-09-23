@@ -1,9 +1,6 @@
 {{ define "main" }}
   <main id="main">
     <h1>
-      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use xlink:href="#bookmark"></use>
-      </svg>
       {{ .Title }}
     </h1>
     {{ if isset .Params "tags" }}

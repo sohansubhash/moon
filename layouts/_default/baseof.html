@@ -42,7 +42,7 @@
       <a href="#main">skip to content</a>
     {{ end }}
     {{ partial "svg.html" . }}
-    <div class="wrapper {{ if eq .Type "print-version" }}print-version{{ end }}">
+    <div class="wrapper">
         <header class="intro-and-nav" role="banner">
           <div>
             <div class="intro">
@@ -51,81 +51,37 @@
               </a>
               <p class="library-desc">
                 {{ .Site.Params.Description | markdownify }}
-                {{ if ne .Type "print-version" }}
-                  <a class="print" href="{{ "print-version" | absURL }}">
-                    <svg viewBox="0 0 35 45" aria-hidden="true" focusable="false">
-                      <use xlink:href="#doc"></use>
-                    </svg>Print version
-                 {{ end }}
-               </a>
               </p>
-              {{ if eq .Type "print-version" }}
-                <p class="toc-link">
-                  <span aria-hidden="true">&#x2193;</span>
-                  <a href="#toc">Table of contents</a>
-                  <span aria-hidden="true">&#x2193;</span>
-                </p>
-              {{ end }}
             </div>
             {{ block "nav" . }}
               <nav id="patterns-nav" class="patterns" role="navigation">
                 <h2 class="vh">Main navigation</h2>
-                <button id="menu-button" aria-expanded="false">
-                  <svg viewBox="0 0 50 50" aria-hidden="true" focusable="false">
-                    <use xlink:href="#menu"></use>
-                  </svg>
-                  Menu
-                </button>
                 {{ $current := . }}
                 {{ range $.Site.Home.Sections }}
                   <ul id="patterns-list">
                     {{ range .Pages.ByWeight }}
                       <li class="pattern">
                         <a href="{{ .RelPermalink }}" {{ if eq $current.Permalink .Permalink  }}aria-current="page"{{ end }}>
-                          <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
-                            <use xlink:href="#bookmark"></use>
-                          </svg>
                           <span class="text">{{ .Title }}</span>
                         </a>
-                      </li>
-                    {{ end }}
-                    {{ range .Sections.ByWeight }}
-                      <li>
-                        <h3>{{ .Title }}</h3>
-                        <ul>
-                          {{ range .Pages.ByWeight }}
-                            <li class="pattern">
-                              <a href="{{ .RelPermalink }}" {{ if eq $current.Title .Title  }}aria-current="page"{{ end }}>
-                                <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-                                  <use xlink:href="#bookmark"></use>
-                                </svg>
-                                <span class="text">{{ .Title }}</span>
-                              </a>
-                            </li>
-                          {{ end }}
-                        </ul>
                       </li>
                     {{ end }}
                   </ul>
                 {{ end }}
               </nav>
             {{ end }}
+            <div>
+            <label for="themer">
+              dark theme: <input type="checkbox" id="themer" class="vh">
+              <span aria-hidden="true"></span>
+            </label>
+          </div>
           </div>
         </header>
       <div class="main-and-footer">
         <div>
           {{ block "main" . }}
           {{ end }}
-          <footer role="contentinfo">
-            <div>
-              <label for="themer">
-                dark theme: <input type="checkbox" id="themer" class="vh">
-                <span aria-hidden="true"></span>
-              </label>
-            </div>
-            Powered by <strong>Cupper</strong>, a <strong>The Paciello Group</strong> project.<br>
-            For general enquiries, contact us on info@paciellogroup.com.
-          </footer>
         </div>
       </div>
     </div>

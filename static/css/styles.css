@@ -314,7 +314,6 @@ caption {
     position: fixed;
     top: 0;
     left: 0;
-    border-right: 2px solid;
 }
 .intro-and-nav > div {
     padding: 2.25rem;
@@ -372,6 +371,7 @@ caption {
 .patterns li {
     line-height: 1.125;
     list-style: none;
+    padding: 0 1em 0;
 }
 .patterns li + li {
     margin-top: 0.75rem;
@@ -385,7 +385,7 @@ caption {
     flex-wrap: nowrap;
     align-items: baseline;
     font-weight: bold;
-    padding: 0 1rem;
+    padding: 0;
 }
 .pattern a:focus {
     outline: none;
@@ -397,7 +397,6 @@ caption {
 /* after */
 .pattern [aria-current] {
   background-color: #111;
-  clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
   color: #fefefe;
   padding: 0.5em 1em 0.5em;
 }
